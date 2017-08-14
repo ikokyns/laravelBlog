@@ -8,7 +8,7 @@ Route::post('/posts', 'PostsController@store');
 
 Route::post('/posts/{id}/comment', 'CommentsController@store');
 
-Route::get('/register', 'RegisterController@create');
+Route::get('/register', 'RegisterController@create')->middleware('guest');
 Route::post('/register', 'RegisterController@store');
 
 Route::get('/logout', 'LoginController@destroy');
