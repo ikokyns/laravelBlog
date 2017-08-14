@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
-
     public function comments()
     {
         return $this->hasMany(Comment::class);
@@ -26,5 +25,10 @@ class Post extends Model
     public function addComment($body)
     {
         $this->comments()->create(['body' => $body]);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
