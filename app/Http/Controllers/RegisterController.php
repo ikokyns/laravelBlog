@@ -8,10 +8,11 @@ use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
-	/*public function __construct()
+	public function __construct()
 	{
 		$this->middleware('guest');
-	}*/
+        $this->middleware('age', ['only' => 'store']);
+	}
 
     public function create()
     {

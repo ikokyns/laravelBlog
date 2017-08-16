@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Mail\CommentReceived;
 
 class CommentsController extends Controller
 {
@@ -16,6 +17,8 @@ class CommentsController extends Controller
         $post = Post::find($id);
 
         $post->addComment(request('body'));
+
+        \Mail::to($post->user)->send(new CommentReceived($post));
 
 
         return back();
