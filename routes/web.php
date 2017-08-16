@@ -17,3 +17,5 @@ Route::get('/login', 'LoginController@create')->name('login');
 Route::post('/login', 'LoginController@store');
 
 Route::get('/users/{id}', 'UsersController@show');
+
+Route::get('/posts/tags/{tag}', 'TagsController@index');
