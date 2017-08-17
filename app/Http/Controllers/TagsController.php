@@ -12,7 +12,7 @@ class TagsController extends Controller
     {
     	//$tag = Tag::findOrFail($tagId);
 
-    	$posts = $tag->posts;
+    	$posts = $tag->posts()->with('user')->latest()->paginate(10);
 
     	return view('posts.index', compact('posts'));
     }
