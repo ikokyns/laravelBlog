@@ -14,8 +14,10 @@ class PostsController extends Controller
     public function index()
     {
         //$posts = Post::all();
-        $posts = Post::paginate(10);
+        $posts = Post::with('user')->paginate(10);
         //$posts = Post::simplepaginate(10);
+
+        //\Log::info($posts);
 
         return view('posts.index', ['posts' => $posts]);
     }
